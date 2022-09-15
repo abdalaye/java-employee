@@ -1,9 +1,10 @@
 package com.soumare.employeemanager.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Employee {
+public class Employee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false,updatable = false)
@@ -12,17 +13,17 @@ public class Employee {
     private String email;
     private String jobTitle;
     private String phone;
-    private String imageurl;
+    private String imageUrl;
     @Column(nullable = false, updatable = false)
     private String employeeCode;
 
     public Employee() {}
-    public Employee(String name, String email, String jobTitle, String phone, String imageurl, String employeeCode) {
+    public Employee(String name, String email, String jobTitle, String phone, String imageUrl, String employeeCode) {
         this.name = name;
         this.email = email;
         this.jobTitle = jobTitle;
         this.phone = phone;
-        this.imageurl = imageurl;
+        this.imageUrl = imageUrl;
         this.employeeCode = employeeCode;
     }
 
@@ -66,12 +67,12 @@ public class Employee {
         this.phone = phone;
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
+    public void setImageUrl(String imageurl) {
+        this.imageUrl = imageurl;
     }
 
     public String getEmployeeCode() {
@@ -90,7 +91,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", jobTitle='" + jobTitle + '\'' +
                 ", phone='" + phone + '\'' +
-                ", imageurl='" + imageurl + '\'' +
+                ", imageurl='" + imageUrl + '\'' +
                 ", employeeCode='" + employeeCode + '\'' +
                 '}';
     }
